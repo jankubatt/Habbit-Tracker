@@ -84,5 +84,5 @@ router.get('/habbits.json', function (req, res) {
 });
 
 app.use("/", router);
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log('Server up and running on port: 3000');
