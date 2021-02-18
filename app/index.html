@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habbit Tracker</title>
+
+    <!-- CDN
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/848da1e5f7.js"></script>
+    -->
+    
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/fontawesome.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a href="/"><span class="navbar-brand mb-0 h1">Habbit Tracker</span></a>
+        <a class="nav-link nav-item text-light" href="add.html">Add habbit</a>
+    </nav>
+
+    <section>
+        <div class="card m-3">
+            <h4 class="ml-1">Progress</h4>
+
+            <div class="card-body">
+                <div id="levelBar"></div>
+                <p id="levelText" class="d-inline float-left">
+                    <p id="nextLevelText" class="d-inline float-right"></p>
+                </p><br>
+                <p id="stats"></p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <div class="card border-dark" id="edit" style="width: 18rem; position: fixed; left: -20em; z-index:100; top: 15em;">
+        <div class="card-body">
+            <h5 id="title" class="card-title d-inline">Edit</h5><a onclick="closeEdit()" class="d-inline text-danger float-right"><i class="fas fa-times"></i></a><br><br>
+            <div class="form-group"><input class="form-control" id="name" type="text" placeholder="Name" /></div>
+            <a id="btnEdit" href="null" class="btn btn-outline-success d-block">Edit</a><br>
+            <a id="btnDelete" href="/deleteHabbit?id=" class="btn btn-outline-danger d-block">Delete</a>
+        </div>
+    </div>
+
+    <section>
+        <div id="habbits"></div>
+    </section>
+
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>

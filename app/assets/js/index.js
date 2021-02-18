@@ -10,8 +10,6 @@ const levelText = document.getElementById("levelText");
 const nextLevelText = document.getElementById("nextLevelText");
 
 let editTitle = document.getElementById("title");
-
-
 let selectedId = 0;
 let successRate = 0;
 
@@ -80,6 +78,5 @@ function showEdit(id, name) {
 
 function closeEdit() {
     $("#edit").animate({left: "-20em"}, 250);
-    //$("#edit").hide();
 }
 
