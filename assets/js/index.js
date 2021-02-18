@@ -70,8 +70,8 @@ function loadHabbits() {
 
 function showEdit(id, name) {
     editTitle.innerHTML = name;
-    $("#edit").animate({left: "-20%"}, 250);
-    $("#edit").animate({left: "45%"}, 250);
+    $("#edit").animate({left: "-20em"}, 250);
+    $("#edit").animate({left: "50em"}, 250);
 
     selectedId = id;
     let href = "/deleteHabbit?id=" + selectedId;
@@ -79,7 +79,7 @@ function showEdit(id, name) {
 }
 
 function closeEdit() {
-    $("#edit").animate({left: "-20%"}, 250);
+    $("#edit").animate({left: "-20em"}, 250);
     //$("#edit").hide();
 }
 
