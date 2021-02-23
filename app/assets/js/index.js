@@ -1,4 +1,12 @@
+/*
+    Author: Jan Kubat
+    Web: jankubat-it.cz
+    Twitter: JanKubat8
+*/
+
 const inputName = document.getElementById("name");
+const nameAdd = document.getElementById("nameAdd");
+const dateAdd = document.getElementById("dateAdd");
 
 let color = "success";
 let editTitle = document.getElementById("title");
@@ -20,7 +28,7 @@ function loadHabbits() {
             let progress = ((days <= 60) ? parseInt(days / 60 * 100) : "100");
 
             if (status == "adapted") successRate += 1;
-            
+
             $("#habbits").append(`
             <div class="card m-3">
                 <div class="card-body">
@@ -31,7 +39,7 @@ function loadHabbits() {
                         <div class="progress-bar bg-${color} progress-bar-striped progress-bar-animated"role="progressbar" aria-valuenow="${days}" aria-valuemin="0" aria-valuemax="60" style="width: ${progress}%"></div>
                     </div>
                 </div>
-            </div>`);
+            </div><button id="fabAdd" class="btn btn-${color} rounded-circle" style="position: fixed; right: 2em; z-index:100; bottom: 2em;" onclick="showAdd()"><i class="fas fa-plus fa-3x"></i></button>`);
         }
 
         $("#levelBar").html(`
@@ -47,6 +55,8 @@ function loadHabbits() {
 
 function showEdit(id, name) {
     editTitle.innerHTML = name;
+    inputName.value = name;
+
     $("#edit").animate({
         left: "-20em"
     }, 250);
@@ -73,6 +83,29 @@ $("#editToggle").click(() => {
     $(".cardEditBtn").toggle();
 });
 
+function showAdd() {
+    $("#add").animate({
+        left: "-20em"
+    }, 250);
+    $("#add").animate({
+        left: "50em"
+    }, 250);
+
+    console.log("clicked");
+}
+
+function closeAdd() {
+    $("#add").animate({
+        left: "-20em"
+    }, 250);
+}
+
+$("#closeAdd").click(() => {
+    $("#add").animate({
+        left: "-20em"
+    }, 250);
+});
+
 function setColor() {
     let colorGet = "";
 
@@ -86,6 +119,22 @@ function setColor() {
     });
 
     color = colorGet;
+}
+
+function addHabbit() {
+    $.ajax({
+            method: "POST",
+            url: "/addHabbit",
+            data: {
+                name: nameAdd.value,
+                date: dateAdd.value
+            }
+        })
+        .done(function (msg) {
+            closeAdd();
+            $("#habbits").html("");
+            loadHabbits();
+        });
 }
 
 function editHabbit() {

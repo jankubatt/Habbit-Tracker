@@ -1,3 +1,9 @@
+/*
+    Author: Jan Kubat
+    Web: jankubat-it.cz
+    Twitter: JanKubat8
+*/
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -5,7 +11,9 @@ const fs = require('fs');
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 app.use(express.static('app'));
 app.use('/public', express.static('app'));
 
@@ -23,7 +31,7 @@ app.post('/addHabbit', (req, res) => {
 		});
 	})
 
-	res.redirect("/");
+	res.sendStatus(200);
 });
 
 app.post('/deleteHabbit', (req, res) => {
@@ -67,7 +75,7 @@ app.post('/editHabbit', (req, res) => {
 app.get('/changeColor', (req, res) => {
 	fs.readFile('app/settings.json', function (err, data) {
 		var json = JSON.parse(data);
-		if (typeof(req.query.color) != "undefined") {
+		if (typeof (req.query.color) != "undefined") {
 			json.settings.color = req.query.color;
 		}
 
@@ -76,6 +84,7 @@ app.get('/changeColor', (req, res) => {
 			console.log('color changed');
 		});
 	})
+	res.sendStatus(200);
 });
 
 app.listen(process.env.PORT || 3000);
@@ -83,7 +92,7 @@ console.log('Server up and running on port: ' + (process.env.PORT || 3000));
 
 function htmlEscape(text) {
 	return text.replace(/&/g, '&amp;').
-	  replace(/</g, '&lt;').
-	  replace(/"/g, '&quot;').
-	  replace(/'/g, '&#039;');
- }
+	replace(/</g, '&lt;').
+	replace(/"/g, '&quot;').
+	replace(/'/g, '&#039;');
+}

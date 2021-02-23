@@ -13,6 +13,6 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jan Kubat",
   "license": "ISC"
 }
