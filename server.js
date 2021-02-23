@@ -6,9 +6,7 @@ const fs = require('fs');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.static('app'));
-
 app.use('/public', express.static('app'));
 
 app.post('/addHabbit', (req, res) => {

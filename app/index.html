@@ -31,7 +31,7 @@
                 <a class="nav-link nav-item text-light" href="add.html">Add</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link nav-item text-light" href="#" onclick="editButtonToggle()">Edit</a>
+                <a class="nav-link nav-item text-light" href="#" id="editToggle">Edit</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link nav-item text-light" href="settings.html">Settings</a>
@@ -57,7 +57,7 @@
 
     <div class="card border-dark" id="edit" style="width: 18rem; position: fixed; left: -20em; z-index:100; top: 15em;">
         <div class="card-body">
-            <h5 id="title" class="card-title d-inline">Edit</h5><a onclick="closeEdit()" class="d-inline text-danger float-right"><i class="fas fa-times"></i></a><br><br>
+            <h5 id="title" class="card-title d-inline">Edit</h5><a id="closeEdit" class="d-inline text-danger float-right"><i class="fas fa-times"></i></a><br><br>
             <div class="form-group"><input class="form-control" id="name" type="text" placeholder="Name" /></div>
             <a id="btnEdit" onclick="editHabbit()" class="btn btn-outline-success d-block">Edit</a><br>
             <a id="btnDelete" onclick="deleteHabbit()" class="btn btn-outline-danger d-block">Delete</a>
