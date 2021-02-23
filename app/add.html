@@ -12,29 +12,21 @@
     <script src="https://kit.fontawesome.com/848da1e5f7.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><i class="fas fa-user-circle"></i></a>
-        <span class="navbar-brand mb-0 h1">Habbit Tracker</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="/"><span class="navbar-brand mb-0 h1">Habbit Tracker</span></a>
+      
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link nav-item text-light" href="add.html">Add</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link nav-item text-light" href="#" onclick="editButtonToggle()">Edit</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link nav-item text-light" href="settings.html">Settings</a>
+            </li>
+        </ul>    
     </nav>
-    <div class="collapse" id="navbarToggleExternalContent">
-        <nav class="navbar navbar-light bg-light">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="add.html">Add habbit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
-                </li>
-              </ul>
-        </nav>
-    </div>
 
 <div class="container">
     <form action="/addHabbit" method="POST">

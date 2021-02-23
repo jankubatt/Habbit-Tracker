@@ -16,7 +16,7 @@ app.post('/addHabbit', (req, res) => {
 		var json = JSON.parse(data);
 		json.habbits.push({
 			"id": Date.now(),
-			"name": req.body.name,
+			"name": htmlEscape(req.body.name),
 			"date": Date.parse(req.body.date)
 		});
 		fs.writeFile("app/habbits.json", JSON.stringify(json), function (err) {
@@ -28,12 +28,12 @@ app.post('/addHabbit', (req, res) => {
 	res.redirect("/");
 });
 
-app.get('/deleteHabbit', (req, res) => {
+app.post('/deleteHabbit', (req, res) => {
 	fs.readFile('app/habbits.json', function (err, data) {
 		var json = JSON.parse(data);
 
 		for (let i = 0; i < json.habbits.length; i++) {
-			if (json.habbits[i].id == req.query.id) {
+			if (json.habbits[i].id == req.body.id) {
 				json.habbits.splice(i, 1);
 			}
 		}
@@ -44,16 +44,16 @@ app.get('/deleteHabbit', (req, res) => {
 		});
 	})
 
-	res.redirect("/");
+	res.sendStatus(200);
 });
 
-app.get('/editHabbit', (req, res) => {
+app.post('/editHabbit', (req, res) => {
 	fs.readFile('app/habbits.json', function (err, data) {
 		var json = JSON.parse(data);
 
 		for (let i = 0; i < json.habbits.length; i++) {
-			if (json.habbits[i].id == req.query.id) {
-				json.habbits[i].name = req.query.name;
+			if (json.habbits[i].id == req.body.id) {
+				json.habbits[i].name = req.body.name;
 			}
 		}
 
@@ -63,8 +63,29 @@ app.get('/editHabbit', (req, res) => {
 		});
 	})
 
-	res.redirect("/");
+	res.sendStatus(200);
+});
+
+app.get('/changeColor', (req, res) => {
+	fs.readFile('app/settings.json', function (err, data) {
+		var json = JSON.parse(data);
+		if (typeof(req.query.color) != "undefined") {
+			json.settings.color = req.query.color;
+		}
+
+		fs.writeFile("app/settings.json", JSON.stringify(json), function (err) {
+			if (err) throw err;
+			console.log('color changed');
+		});
+	})
 });
 
 app.listen(process.env.PORT || 3000);
 console.log('Server up and running on port: ' + (process.env.PORT || 3000));
+
+function htmlEscape(text) {
+	return text.replace(/&/g, '&amp;').
+	  replace(/</g, '&lt;').
+	  replace(/"/g, '&quot;').
+	  replace(/'/g, '&#039;');
+ }

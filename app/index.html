@@ -23,9 +23,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a href="/"><span class="navbar-brand mb-0 h1">Habbit Tracker</span></a>
-        <a class="nav-link nav-item text-light" href="add.html">Add habbit</a>
+      
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link nav-item text-light" href="add.html">Add</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link nav-item text-light" href="#" onclick="editButtonToggle()">Edit</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link nav-item text-light" href="settings.html">Settings</a>
+            </li>
+        </ul>    
     </nav>
 
     <section>
@@ -48,8 +59,8 @@
         <div class="card-body">
             <h5 id="title" class="card-title d-inline">Edit</h5><a onclick="closeEdit()" class="d-inline text-danger float-right"><i class="fas fa-times"></i></a><br><br>
             <div class="form-group"><input class="form-control" id="name" type="text" placeholder="Name" /></div>
-            <a id="btnEdit" href="null" class="btn btn-outline-success d-block">Edit</a><br>
-            <a id="btnDelete" href="/deleteHabbit?id=" class="btn btn-outline-danger d-block">Delete</a>
+            <a id="btnEdit" onclick="editHabbit()" class="btn btn-outline-success d-block">Edit</a><br>
+            <a id="btnDelete" onclick="deleteHabbit()" class="btn btn-outline-danger d-block">Delete</a>
         </div>
     </div>
 
