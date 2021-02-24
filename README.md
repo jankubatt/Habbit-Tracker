@@ -1,2 +1,10 @@
 # Habbit-Tracker
-Simple minimalistic nodejs app that tracks your habbits
+Simple minimalistic NodeJS app that tracks your habbits
+
+# Info
+This is my first real and serious NodeJS project. 
+
+# What I Learned
+- AJAX
+- JSON
+- NodeJS
