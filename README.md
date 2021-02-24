@@ -8,3 +8,4 @@ This is my first real and serious NodeJS project.
 - AJAX
 - JSON
 - NodeJS
+- JQuery
