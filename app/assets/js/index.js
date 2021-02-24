@@ -79,7 +79,7 @@ $("#closeEdit").click(() => {
     }, 250);
 });
 
-$("#editToggle").click(() => {
+$("#btnToggleEdit").click(() => {
     $(".cardEditBtn").toggle();
 });
 
